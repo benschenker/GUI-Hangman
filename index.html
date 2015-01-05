@@ -13,7 +13,7 @@
                 /////////////////////////////////////////////////
                 // Variable declaration
                 /////////////////////////////////////////////////
-                var phrase, displayedPhrase, guess
+                var phrase, displayedPhrase, guess, charactersGuessed
                     ;
                     
                 /////////////////////////////////////////////////
@@ -28,8 +28,10 @@
                       return "-"; 
                    }
                 });
+                charactersGuessed = [];
                 guess = function(character) {
-                    console.log("you guessed ", character);
+                    charactersGuessed.push(character);
+                    console.log("so far you've guessed ", charactersGuessed);
                 }
                 /////////////////////////////////////////////////
                 // Do Stuff
