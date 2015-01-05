@@ -28,20 +28,28 @@
                 }
                 
                 displayCurrent = function() {
-                    var displayedPhrase;
+                    var displayedPhrase, unknownLettersRemaining;
                     /////////////////////////////////////////////////
+                    unknownLettersRemaining = 0;
+                    
                     displayedPhrase = window.hangman.forEachLetter(phrase, function(character) {
                         if(character === " ") {
                             return character;
                         } else if (window.hangman.contains(charactersGuessed, character)) {
                             return character;   
                         } else {
+                            unknownLettersRemaining = unknownLettersRemaining + 1;
                             return "-"; 
                         }
                     });
                     /////////////////////////////////////////////////
                     console.log("Currently:", displayedPhrase);
                     console.log("So far you've guessed ", charactersGuessed);
+                    
+                    if(unknownLettersRemaining === 0) {
+                        console.log("You win!");
+                        window.hangman.cornifyTimes(4);
+                    }
                 }
                 
                 /////////////////////////////////////////////////
