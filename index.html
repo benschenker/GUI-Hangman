@@ -24,22 +24,26 @@
                 charactersGuessed = [];
                 guess = function(character) {
                     charactersGuessed.push(character);
-                    console.log("So far you've guessed ", charactersGuessed);
+                    displayCurrent();
                 }
                 
                 displayCurrent = function() {
                     var displayedPhrase;
                     /////////////////////////////////////////////////
                     displayedPhrase = window.hangman.forEachLetter(phrase, function(character) {
-                       if(character === " ") {
-                           return character;
-                       } else {
-                          return "-"; 
-                       }
+                        if(character === " ") {
+                            return character;
+                        } else if (window.hangman.contains(charactersGuessed, character)) {
+                            return character;   
+                        } else {
+                            return "-"; 
+                        }
                     });
                     /////////////////////////////////////////////////
                     console.log("Currently:", displayedPhrase);
+                    console.log("So far you've guessed ", charactersGuessed);
                 }
+                
                 /////////////////////////////////////////////////
                 // Do Stuff
                 /////////////////////////////////////////////////
