@@ -13,7 +13,7 @@
                 /////////////////////////////////////////////////
                 // Variable declaration
                 /////////////////////////////////////////////////
-                var phrase
+                var phrase, displayedPhrase
                     ;
                     
                 /////////////////////////////////////////////////
@@ -21,10 +21,19 @@
                 /////////////////////////////////////////////////
                 phrase = "learn to program";
                 
+                displayedPhrase = window.hangman.forEachLetter(phrase, function(character) {
+                   if(character === " ") {
+                       return character;
+                   } else {
+                      return "-"; 
+                   }
+                });
+                
                 /////////////////////////////////////////////////
                 // Do Stuff
                 /////////////////////////////////////////////////
-                
+                console.log("Welcome to hangman! There is a secret phrase");
+                console.log(displayedPhrase);
                 
                 /////////////////////////////////////////////////
                 // Export variables
