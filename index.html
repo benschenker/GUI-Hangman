@@ -1,71 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>A console.log Hangman Game</title>
+        <title>A Hangman Game</title>
+        <script type="text/javascript" src="hangman-utils.js"></script>
+        <script type="text/javascript" src="hangman-game-logic.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="hangman.css" type="text/css" />
     </head>
     <body>
-        Open up the console to see the game!
-        <script src="hangman-utils.js"></script>
-        
+        <div id="setup">
+            <!--Put a textbox here with a button-->
+        </div>
+        <div id="game" style="display:none;">
+            <div id="current-phrase"></div>
+            <div id="current-hangman"></div>
+            <div id="letters"></div>
+        </div>
         <script>
             (function() {
-                'use strict'
-                /////////////////////////////////////////////////
-                // Variable declaration
-                /////////////////////////////////////////////////
-                var phrase, guess, charactersGuessed, displayCurrent
-                    ;
-                    
-                /////////////////////////////////////////////////
-                // Variable initialization
-                /////////////////////////////////////////////////
-                phrase = "learn to program";
+                'use strict';
+                var letters, guessAndUpdateView, setUpGame;
+
+                letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+                /*
+                Perform a guess on character
+                Retrieve and display the updated view
+                Detect loss
+                */
+                guessAndUpdateView = function (character) {
+                };
+
+                /*
+                Toggle the game view
+                Insert the letters into the letters div
+                Create event handlers for the letters
+                */
+                setUpGame = function () {
+                };
+
+                // When button is clicked, set up game and update view
                 
-                charactersGuessed = [];
-                guess = function(character) {
-                    charactersGuessed.push(character);
-                    displayCurrent();
-                }
-                
-                displayCurrent = function() {
-                    var displayedPhrase, unknownLettersRemaining;
-                    /////////////////////////////////////////////////
-                    unknownLettersRemaining = 0;
-                    
-                    displayedPhrase = window.hangman.forEachLetter(phrase, function(character) {
-                        if(character === " ") {
-                            return character;
-                        } else if (window.hangman.contains(charactersGuessed, character)) {
-                            return character;   
-                        } else {
-                            unknownLettersRemaining = unknownLettersRemaining + 1;
-                            return "-"; 
-                        }
-                    });
-                    /////////////////////////////////////////////////
-                    console.log("Currently:", displayedPhrase);
-                    console.log("So far you've guessed ", charactersGuessed);
-                    
-                    if(unknownLettersRemaining === 0) {
-                        console.log("You win!");
-                        window.hangman.cornifyTimes(4);
-                    }
-                }
-                
-                /////////////////////////////////////////////////
-                // Do Stuff
-                /////////////////////////////////////////////////
-                console.log("Welcome to hangman! There is a secret phrase");
-                console.log("Commands you can use: guess('a')");
-                
-                displayCurrent();
-                
-                /////////////////////////////////////////////////
-                // Export variables
-                /////////////////////////////////////////////////
-                window.guess = guess;
-                window.displayCurrent = displayCurrent;
-            })();   
+            })();
         </script>
     </body>
-</html> 
+</html>

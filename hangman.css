@@ -1,0 +1,28 @@
+body {
+                font-size: 40px;
+            }
+            #setup {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 550px;
+            }
+            .letters{
+                margin-right:5px;
+                cursor: pointer;
+                color: blue;
+            }
+            .clicked{
+                color: grey;
+                cursor:default;
+            }
+            .lost {
+                background-color:red;
+            }
+            .label {
+                display: block;
+                color: black;
+            }
+            #current-phrase {
+                font-size: 60px;
+            }

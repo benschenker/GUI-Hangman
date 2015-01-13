@@ -1,5 +1,5 @@
 (function(){
-    'use strict'
+    'use strict';
     
     /////////////////////////////////////////////////
     // Variable declaration
@@ -10,18 +10,18 @@
     // Variable initialzation
     /////////////////////////////////////////////////
     toArray = function(obj) {
-        return Array.prototype.slice.call(obj)
+        return Array.prototype.slice.call(obj);
     };
     contains = function(array, value) {
-        return array.indexOf(value) != -1
-    }
+        return array.indexOf(value) != -1;
+    };
     forEachLetter = function(str, fn) {
         var letters, mappedLetters
             ;
         letters = toArray(str);
         mappedLetters = letters.map(fn);
         return mappedLetters.join('');
-    }
+    };
     includeCornify = function() {
     	var cornifyScript, files
     		;
@@ -41,7 +41,7 @@
     			cornifyScript.appendChild(includeCornifyScript);
     		});
     	}
-    }
+    };
     cornifyOnce = function(){
         var tryAddCornify;
         tryAddCornify = function() {
@@ -50,20 +50,21 @@
                 return;
             }
             setTimeout(tryAddCornify, 500);
-        }
+        };
         includeCornify();
         tryAddCornify();
-    }
+    };
     cornifyTimes = function(times) {
         cornifyOnce();
         for(var counter = 0; counter < times; counter += 1) {
             cornifyOnce();
         }
-    }
+    };
     /////////////////////////////////////////////////
     // Export variables
     /////////////////////////////////////////////////
-    window.hangman = {
+    window.hangman = {};
+    window.hangman.util = {
         forEachLetter: forEachLetter,
         contains: contains,
         cornifyTimes: cornifyTimes,
